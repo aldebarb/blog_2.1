@@ -16,42 +16,34 @@ class Forum
 	{
 		$this->postId = $postId;
 	}
-
     public function setUserId($userId)
     {
     	$this->userId = $userId;
     }
-
     public function setPostTitle($postTitle)
     {
     	$this->postTitle = $postTitle;
     }
-
     public function setPostContent($postContent)
     {
     	$this->postContent = $postContent;
     }
-
     public function setPostDate($postDate)
     {
     	$this->postDate = $postDate;
     }
-
     public function setPostTime($postTime)
     {
     	$this->postTime = $postTime;
     }
-
     public function getPostTitle()
     {
         return $this->postTitle;
     }
-
     public function getPostContent()
     {
     	return $this->postContent;
     }
-    
 	public function save($mysqli)
 	{
 		if ($this->postId == 0) {
@@ -61,23 +53,19 @@ class Forum
 			$this->updatePost($mysqli);
 		}
 	}
-
 	public function createPost($mysqli)
 	{
 		$mysqli->query("INSERT INTO forum (user_id, post_title, post_blog, post_date, post_time) VALUES ('$this->userId', '$this->postTitle', '$this->postContent', '$this->postDate', '$this->postTime')");
 	}
-
 	public function updatePost($mysqli)
 	{
 		$mysqli->query("UPDATE forum SET user_id = '$this->userId', post_title = '$this->postTitle', post_blog = '$this->postContent', post_date = '$this->postDate', post_time = '$this->postTime' WHERE post_id = '$this->postId'");
 		//Can always make more tables for date_created, last_updated_date etc...
 	}
-
 	public function deletePost($mysqli)
 	{
 		$mysqli->query("DELETE FROM forum WHERE post_id = '$this->postId'");
 	}
-
 	public function loadPost($mysqli)
 	{
 		$sql = "SELECT user_id, post_title, post_blog, post_date, post_time FROM forum WHERE post_id = '$this->postId'";

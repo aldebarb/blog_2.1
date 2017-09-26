@@ -6,7 +6,6 @@ function removeMaliciousCode($data)
 	$data = stripslashes($data);
 	return $data;
 }
-
 function checkStringLength($userString, $stringLength)
 {
     if(empty($userString) || strlen($userString) > $stringLength || !preg_match("/^[a-zA-Z ]*$/", $userString)) {
@@ -14,7 +13,6 @@ function checkStringLength($userString, $stringLength)
     }
     return $userString;
 }
-
 function verifyEmail($userEmail)
 {
 	if(empty($userEmail) || strlen($userEmail) >254 || !filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
@@ -22,7 +20,6 @@ function verifyEmail($userEmail)
 	}
 	return $userEmail;
 }
-
 function hashUserPassword($password)
     {
     	if (strlen($password) < 8 || strlen($password) > 32) {

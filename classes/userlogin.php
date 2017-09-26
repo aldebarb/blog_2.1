@@ -11,24 +11,20 @@ class UserLogin
 	{
 		$this->mysqli = $mysqli;
 	}
-
 	public function setUserId($userId)
 	{
 		$this->userId = $userId;
 	}
-
 	public function getUserId()
 	{
 		return $this->userId;
 	}
-
 	public function isLoggedIn()
 	{
 		if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
 			return true;
 		}
 	}
-
 	private function getUserHash($emailAddress)
 	{
 		$sql = "SELECT user_id, password_hash FROM user_login WHERE email_address = '$emailAddress'";
@@ -42,7 +38,6 @@ class UserLogin
 			}
 		}
 	}
-
 	public function login($emailAddress, $password)
 	{
 		$hashed = $this->getUserHash($emailAddress);
@@ -52,7 +47,6 @@ class UserLogin
 		}
 		return false;
 	}
-
 	public function checkEmailRegistration($emailAddress)
 	{
 		$sql = "SELECT email_address FROM user_login";
@@ -70,7 +64,6 @@ class UserLogin
 		}
 		return true;
 	}
-
 	public function logout()
 	{
 		session_destroy();

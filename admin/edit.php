@@ -21,9 +21,9 @@ if (isset($_POST['submit'])) {
 ?>
 
 <form method="post" action="">
-	<p>Title</p>
-	<input type="text" name="postTitle" maxlength="32" value="<?php echo $editForum->getPostTitle();?>"><br>
-	<p>Post</p>
+	<caption>Title:</caption>
+	<input type="text" name="postTitle" maxlength="32" value="<?php echo $editForum->getPostTitle();?>"><br><br>
+	<caption>Post:</caption>
 	<textarea name="postContent" rows="3", cols="40" maxlength="120"><?php echo $editForum->getPostContent();?></textarea>
 	<input type="submit" name="submit" value="Edit Post">
 </form>

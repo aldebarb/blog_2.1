@@ -7,11 +7,22 @@ if (isset($_POST['submit'])) {
 	$inputArray['emailAddress'] = verifyEmail($inputArray['emailAddress']);
 	$inputArray['passwordHash'] = hashUserPassword($inputArray['password']);
 
-    if (!$userLoggedIn->checkEmailRegistration($inputArray['emailAddress'])) {
-    	echo "Email address is already taken.";
+    foreach ($inputArray as $key => $value) {
+        
+        if ($value == "") {
+            $error[$key] = "<p>Please enter your " . $key . "</p>";
+        }
+    }
+
+    if (isset($error)) {
+        unset($error['passwordHash']);
+
+        foreach ($error as $error) {
+            echo $error;
+        }
     
-    } elseif (in_array("", $inputArray) || empty($inputArray)) {
-        echo "Please enter in the correct information.";
+    } elseif (!$userLoggedIn->checkEmailRegistration($inputArray['emailAddress'])) {
+    	echo "<p>Email address is already taken.</p><br>";
     
     } else {
         $registerUser = new User(0);
@@ -25,7 +36,6 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
 <h2>Enter your infromation</h2>
 
 <form method="post" action="">

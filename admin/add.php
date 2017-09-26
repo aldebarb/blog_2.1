@@ -4,7 +4,7 @@ if (isset($_POST['submit'])) {
 	$inputArray = array_map('removeMaliciousCode', $_POST);
 
 	if (empty($inputArray['postTitle']) || empty($inputArray['postContent'])) {
-		echo "Invalid Post";
+		echo "<p>Invalid Post</p>";
 		
 	} else {
 		$addForum = new Forum(0);
@@ -20,9 +20,9 @@ if (isset($_POST['submit'])) {
 ?>
 
 <form method="post" action="">
-	<p>Title</p>
-	<input type="text" name="postTitle" maxlength="32"><br>
-	<p>Post</p>
+	<caption>Title:</caption>
+	<input type="text" name="postTitle" maxlength="32"><br><br>
+	<caption>Post:</caption>
 	<textarea name="postContent" rows="3", cols="40" maxlength="120"></textarea>
 	<input type="submit" name="submit" value="Post">
 </form>

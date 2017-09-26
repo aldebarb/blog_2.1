@@ -1,7 +1,17 @@
 <?php 
+//Session security
+ini_set('session.cookie_httponly', true);
 session_start();
+if (isset($_SESSION['last_ip']) === false) {
+	$_SESSION['last_ip'] = $_SERVER['REMOTE_ADDR'];
+}
+if ($_SESSION['last_ip'] !== $_SERVER['REMOTE_ADDR']) {
+	session_unset();
+	session_destroy();
+}
+
 date_default_timezone_set('America/New_York');
-$mysqli = new mysqli('localhost', 'root', '', 'blog_db');
+$mysqli = new mysqli('localhost', 'root', 'password', 'blog_db');
 
 if ($mysqli->connect_error) {
 	die('Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
@@ -26,6 +36,5 @@ function __autoload($class)
 		require $classPath;
 	}
 }
-
 $userLoggedIn = new UserLogin($mysqli);
 ?>
