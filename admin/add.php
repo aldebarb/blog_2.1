@@ -1,4 +1,7 @@
 <?php
+/*
+    Filter user input and use the Forum class to add the post to the database
+*/
 
 if (isset($_POST['submit'])) {
 	$inputArray = array_map('removeMaliciousCode', $_POST);

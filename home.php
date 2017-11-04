@@ -14,7 +14,7 @@ if (!$userLoggedIn->isLoggedIn()) {
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body>
-    <h2>Char120</h2>
+    <h1>Char120</h1>
     <div id="menu">
 	    <a href="home.php">Home</a>
 	    <a href="home.php?p=add">Add a Post</a>

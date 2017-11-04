@@ -1,6 +1,6 @@
 <?php 
 /*
-	Connect to the database once with singleton design
+	Connect to the database once with the singleton design
 */
 
 class ConnectDb

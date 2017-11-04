@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST['submit'])) {
 	$inputArray = array_map('removeMaliciousCode', $_POST);
 	$inputArray['firstName'] = checkStringLength($inputArray['firstName'], 32);

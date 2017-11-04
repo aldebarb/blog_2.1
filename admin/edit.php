@@ -1,4 +1,8 @@
 <?php
+/*
+    Load selected post into the HTML form and update with the Forum Class
+*/
+
 $editForum = new Forum($_GET['postId']);
 $editForum->loadPost($mysqli);
 

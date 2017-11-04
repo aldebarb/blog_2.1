@@ -1,8 +1,10 @@
 <?php
- //Schema
-    //forum (post_id, user_id, post_title, post_blog, post_date, post_time)
-    //users (user_id, first_name, last_name, birth_date)
-    //user_login(login_id, user_id, email_address, password_hash)
+/* Schema
+    forum (post_id, user_id, post_title, post_blog, post_date, post_time)
+    users (user_id, first_name, last_name, birth_date)
+    user_login(login_id, user_id, email_address, password_hash)
+*/
+
 class Forum
 {
 	protected $postId;

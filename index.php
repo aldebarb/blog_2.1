@@ -10,7 +10,7 @@ require 'includes/formUtility.php';
 	<link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body>
-    <h2>Welcome to Char120!</h2>
+    <h1>Welcome to Char120!</h1>
     <div id="menu">
 	    <a href="index.php">Home</a>
 	    <a href="index.php?p=index">Login</a>
